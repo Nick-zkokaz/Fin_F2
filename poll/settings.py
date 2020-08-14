@@ -30,8 +30,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'e#!xkhudyp^e4^ht0_tiwh7nn9n0oo
 # DEBUG = True
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
-#ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', 'https://shielded-plains-77689.herokuapp.com']
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0']
+#ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', 'sf-f2-nickkokaz.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', 'shielded-plains-77689.herokuapp.com']
 
 # Application definition
 

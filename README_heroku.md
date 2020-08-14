@@ -27,7 +27,7 @@
    - git commit -m "initial commit"
    - heroku login
    - heroku create
-   - heroku rename -a oldname newname (переименовываем приложение, если необходимо)
+   - heroku rename -a https://enigmatic-headland-63521.herokuapp.com/ https://shielded-plains-77689.herokuapp.com/ (переименовываем приложение, если необходимо)
    - heroku addons:create heroku-postgresql --as DATABASE
    - heroku config:set SECRET_KEY=Ваш_секретный_код
    - git push heroku master
