@@ -40,4 +40,5 @@
 
 -- Данный проект находится на https://fatidique-livre-88037.herokuapp.com/
  --- Логин admin, пароль admin 
+heroku run python manage.py loaddata db.json
 

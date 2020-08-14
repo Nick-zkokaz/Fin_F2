@@ -31,7 +31,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'e#!xkhudyp^e4^ht0_tiwh7nn9n0oo
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 #ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', 'sf-f2-nickkokaz.herokuapp.com']
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', 'shielded-plains-77689.herokuapp.com']
+#ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', 'shielded-plains-77689.herokuapp.com']
+ALLOWED_HOSTS = [ '*' ]
 
 # Application definition
 
@@ -85,7 +86,7 @@ WSGI_APPLICATION = 'poll.wsgi.application'
 # Database default
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
+#DATABASES = {
 # 	'default': {
 # 		'ENGINE': 'django.db.backends.sqlite3',
 # 		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
@@ -94,19 +95,19 @@ WSGI_APPLICATION = 'poll.wsgi.application'
 
 #for deploy on heroku
 
-# DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
+DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
 
 # for Docker-compose settings:
 
-DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'postgres',
-       'USER': 'postgres',
-       'HOST': 'db',
-       'PORT': 5432,
-   }
-}
+#DATABASES = {
+#   'default': {
+#       'ENGINE': 'django.db.backends.postgresql',
+#       'NAME': 'postgres',
+#       'USER': 'postgres',
+#       'HOST': 'db',
+#       'PORT': 5432,
+#   }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
