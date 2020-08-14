@@ -1,0 +1,28 @@
+{% extends  'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row justify-content-center">
+      <div class="card text-white text-center bg-dark mb-3" style="width: 30rem;">
+          <div class="card-body">
+            <h4 class="card-title">Вход для зарегистрированных пользователей</h4>
+
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ next }}">
+
+                {{ form|crispy }}
+
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </form>
+          </div>
+      </div>
+</div>
+<div class="row justify-content-center">
+      <div class="card text-white text-center bg-dark mb-3" style="width: 30rem;">
+          <div class="card-body">
+            <h6>Для регистрации <a href="{% url 'register' %}">нажмите здесь</a></h6>
+          </div>
+      </div>
+</div>
+{% endblock %}

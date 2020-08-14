@@ -1,0 +1,16 @@
+.footer {
+    position: absolute;
+    bottom:0;
+    height:10px;
+    background: #1c7178;
+    width:100%;
+}
+#footer-text{
+    font-family: 'Indie Flower', cursive;
+}
+h1{
+    font-family: 'Indie Flower', cursive;
+}
+.copyright{
+    font-size: large;
+}

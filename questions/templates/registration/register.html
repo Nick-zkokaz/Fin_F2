@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Новый пользователь{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+      <div class="card text-white text-center bg-dark mb-3" style="width: 35rem;">
+          <h1>Создать аккаунт</h1>
+            <p>Пожалуйста введите свои данные ниже, что бы зарегистрироваться:</p>
+                <form action="." method="post">
+                    {% csrf_token %}
+                    <table>{{ user_form.as_table }}</table>
+                    <button type="submit" class="btn btn-primary btn-block">Создать аккаунт</button>
+                </form>
+      </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Блок: {{ blocks.title }}{% endblock title %}
+{% block header %}{{ blocks.title }}{% endblock header %}
+{% block content %}
+{% for question in questions_in_block %}
+<div class="row justify-content-center">
+      <div class="card text-center bg-muted mb-3" style="width: 60rem;">
+        <div class="card-body">
+            <h4><a href="{% url 'answer' question.id %}">{{ question.question.title }}</a></h4>
+        </div>
+      </div>
+</div>
+{% endfor %}
+{% endblock %}

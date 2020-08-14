@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title %}Пользователь: {{ actual_user }}{% endblock title %}
+{% block header %}Результаты опросов и тестов пользователя "{{ actual_user }}"{% endblock header %}
+{% block content %}
+<div class="row justify-content-center">
+      <div class="card text-left text-white bg-secondary mb-3" style="width: 60rem;">
+        <div class="card-body">
+          <h3>Результаты опросов и тестов пользователя "{{ actual_user }}"</h3>
+            <h5>Вы ответили на следующие вопросы:</h5>
+                {% for questions in answer_list %}
+                    {% for q in questions.question_in_block.all %}
+                        {% for a in questions.answer.all %}
+                            {% if q.question.id == 10 %} {% if a.id == 23 or a.id == 24 or a.id == 25 %}
+                                    <ul>
+                                        <li>Блок: {{ q.block.title }} || Вопрос: {{ q.question.title }} || Ответ: {{ a.title }} <!-- ||Id Вопроса: {{ q.question.id }}||Id Ответа: {{ a.question }}--> </li>
+                                    </ul>
+                                                        {% endif %}
+                            {% endif %}
+                            {% if q.question.id == 1 %} {% if a.id == 1 or a.id == 2 %}
+                                    <ul>
+                                        <li>Блок: {{ q.block.title }} || Вопрос: {{ q.question.title }} || Ответ: {{ a.title }} <!-- ||Id Вопроса: {{ q.question.id }}|| Id Ответа: {{ a.id }} --></li>
+                                    </ul>
+                                                        {% endif %}
+                            {% endif %}
+                            {% if q.question.id == 2 %} {% if a.id == 3 or a.id == 4 %}
+                                    <ul>
+                                        <li>Блок: {{ q.block.title }} || Вопрос: {{ q.question.title }} || Ответ: {{ a.title }} <!-- ||Id Вопроса: {{ q.question.id }}|| Id Ответа: {{ a.id }} --></li>
+                                    </ul>
+                                                        {% endif %}
+                            {% endif %}
+                            {% if q.question.id == 4 %} {% if a.id == 5 or a.id == 6 %}
+                                    <ul>
+                                        <li>Блок: {{ q.block.title }} || Вопрос: {{ q.question.title }} || Ответ: {{ a.title }} <!-- ||Id Вопроса: {{ q.question.id }}|| Id Ответа: {{ a.id }} --></li>
+                                    </ul>
+                                                       {% endif %}
+                            {% endif %}
+                            {% if q.question.id == 5 %} {% if a.id == 7 or a.id == 8 or a.id == 9 %}
+                                    <ul>
+                                        <li>Блок: {{ q.block.title }} || Вопрос: {{ q.question.title }} || Ответ: {{ a.title }} <!-- ||Id Вопроса: {{ q.question.id }}|| Id Ответа: {{ a.id }} --></li>
+                                    </ul>
+                                                        {% endif %}
+                            {% endif %}
+                            {% if q.question.id == 6 %} {% if a.id == 10 or a.id == 11 or a.id == 12 %}
+                                    <ul>
+                                        <li>Блок: {{ q.block.title }} || Вопрос: {{ q.question.title }} || Ответ: {{ a.title }} <!-- ||Id Вопроса: {{ q.question.id }}|| Id Ответа: {{ a.id }} --></li>
+                                    </ul>
+                                                        {% endif %}
+                            {% endif %}
+                            {% if q.question.id == 7 %} {% if a.id == 13 or a.id == 14 or a.id == 15 %}
+                                    <ul>
+                                        <li>Блок: {{ q.block.title }} || Вопрос: {{ q.question.title }} || Ответ: {{ a.title }} <!-- ||Id Вопроса: {{ q.question.id }}|| Id Ответа: {{ a.id }} --></li>
+                                    </ul>
+                                                        {% endif %}
+                            {% endif %}
+                            {% if q.question.id == 8 %} {% if a.id == 16 or a.id == 17 or a.id == 18 %}
+                                    <ul>
+                                        <li>Блок: {{ q.block.title }} || Вопрос: {{ q.question.title }} || Ответ: {{ a.title }} <!-- ||Id Вопроса: {{ q.question.id }}|| Id Ответа: {{ a.id }} --></li>
+                                    </ul>
+                                                        {% endif %}
+                            {% endif %}
+                            {% if q.question.id == 9 %} {% if a.id == 19 or a.id == 20 or a.id == 21 or a.id == 22 %}
+                                    <ul>
+                                        <li>Блок: {{ q.block.title }} || Вопрос: {{ q.question.title }} || Ответ: {{ a.title }} <!-- ||Id Вопроса: {{ q.question.id }}|| Id Ответа: {{ a.id }} --></li>
+                                    </ul>
+                                                        {% endif %}
+                            {% endif %}
+                            {% if q.question.id == 11 %} {% if a.id == 26 or a.id == 27 or a.id == 28 %}
+                                    <ul>
+                                        <li>Блок: {{ q.block.title }} || Вопрос: {{ q.question.title }} || Ответ: {{ a.title }} <!-- ||Id Вопроса: {{ q.question.id }}|| Id Ответа: {{ a.id }} --></li>
+                                    </ul>
+                                                        {% endif %}
+                            {% endif %}
+                            {% if q.question.id == 12 %} {% if a.id == 29 or a.id == 30 or a.id == 31 %}
+                                    <ul>
+                                        <li>Блок: {{ q.block.title }} || Вопрос: {{ q.question.title }} || Ответ: {{ a.title }} <!-- ||Id Вопроса: {{ q.question.id }}|| Id Ответа: {{ a.id }} --></li>
+                                    </ul>
+                                                        {% endif %}
+                            {% endif %}
+                            {% if q.question.id == 13 %} {% if a.id == 32 or a.id == 33 or a.id == 34 %}
+                                    <ul>
+                                        <li>Блок: {{ q.block.title }} || Вопрос: {{ q.question.title }} || Ответ: {{ a.title }} <!-- ||Id Вопроса: {{ q.question.id }}|| Id Ответа: {{ a.id }} --></li>
+                                    </ul>
+                                                        {% endif %}
+                            {% endif %}
+                            {% if q.question.id == 15 %} {% if a.id == 35 or a.id == 36 or a.id == 37 %}
+                                    <ul>
+                                        <li>Блок: {{ q.block.title }} || Вопрос: {{ q.question.title }} || Ответ: {{ a.title }} <!-- ||Id Вопроса: {{ q.question.id }}|| Id Ответа: {{ a.id }} --></li>
+                                    </ul>
+                                                        {% endif %}
+                            {% endif %}
+
+                        {% endfor %}
+
+                {% endfor %}
+            <!--- <h5>И выбрали следующие варианты ответов:</h5>
+                {% for a in questions.answer.all %}
+                <ul>
+                    <li>{{ a.title }}</li>
+                </ul>
+                {% endfor %}-->
+            <h5>И получили баллов за тест: <strong>{{ questions.test_total }}</strong></h5>
+            <h5>И получили баллов за опросник: <strong>{{ questions.poll_total }}</strong></h5>
+        <hr>
+    {% endfor %}
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

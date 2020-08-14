@@ -1,0 +1,81 @@
+class Question(models.Model):
+	RADIO = 'RO'
+	CHECKBOX = 'CX'
+	TYPE_VARIANT_CHOICES = [
+		(RADIO, 'Radiobutton'),
+		(CHECKBOX, 'Checkbox'),
+	]
+	title = models.CharField("Question", max_length=264, null=True, blank=True)
+	image = models.ImageField("Pickt", blank=True, upload_to='media')
+	type_variant = models.CharField("Choices variant", max_length=2, choices=TYPE_VARIANT_CHOICES, default=RADIO)
+
+	class Meta:
+		verbose_name = 'Question'
+		
+	def __str__(self):
+		return f'id={self.id} -  {self.title}'
+
+class Answer(models.Model):
+	title = models.CharField("Question", max_length=128, null=True, blank=True)
+	question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='answer_in_question', verbose_name='Question', null=True)
+	correct = models.BooleanField(default=True,  help_text = 'Make this to add value')
+	weight = models.SmallIntegerField("Number of Question", editable=True, default=0)
+	
+	
+	class Meta:
+		verbose_name = 'Question'
+		
+	def __str__(self):
+		return f'id={self.id} - {self.title} - вес: {self.weight}'
+
+class Block(models.Model):
+	POLL = 'PL'
+	TEST = 'TS'
+	TYPE_BLOCK_CHOICES = [
+		(POLL, 'POLL'),
+		(TEST, 'TEST'),
+	]
+	type_block = models.CharField("Type of test", max_length=2, choices=TYPE_BLOCK_CHOICES, default=TEST)
+	title = models.CharField("Title", max_length=128, null=True, blank=True)
+	description = tinymce_models.HTMLField("Description", blank=True)
+	question_count = models.SmallIntegerField("Question count", help_text = 'Dont mark', default=0)
+	is_passed = models.BooleanField("Make the test not available", default=False, help_text='Check the box to deactivate the test')
+	date_begin = models.DateTimeField('Test start date', default=timezone.now)
+
+	class Meta:
+		verbose_name = 'Test blocks'
+		
+
+	def __str__(self):
+		return self.title
+
+
+class QuestionInBlock(models.Model):
+	question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='question', null=True, verbose_name='Question')
+	block = models.ForeignKey(Block, on_delete=models.CASCADE, related_name='block', verbose_name='Block')
+	# добавил ниже
+	#answer = models.ForeignKey(Answer, on_delete=models.CASCADE, related_name='answer', verbose_name='Answer')
+
+	class Meta:
+		verbose_name = 'Question in the block'
+		
+
+	def __str__(self):
+		# return str(f'{self.block} || {self.question} || {self.answer}')
+		return str(f'{self.block} || {self.question}')
+
+class UserProfile(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='User', blank=True, null=True)
+	question_in_block = models.ManyToManyField(QuestionInBlock, related_name='question_in_block', verbose_name='Questions in the block', default='', blank=True)
+	answer = models.ManyToManyField(Answer, related_name='user_answer', verbose_name='Answers', default='', blank=True)
+	poll_total = models.SmallIntegerField("Sum of questionnaire responses", editable=True, default=0)
+	test_total = models.SmallIntegerField("The sum of the answers in the test", editable=True, default=0)
+	is_full = models.BooleanField("Fullness check", default=False)
+	
+	class Meta:
+		verbose_name = 'User statistics'
+		
+	def __str__(self):
+		return str(self.user)
+
+
